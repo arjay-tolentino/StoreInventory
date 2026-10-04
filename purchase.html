@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Purchase List - Store Inventory</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+    <header class="header no-print">
+
+        <div>
+            <h1>Store Inventory</h1>
+            <p>Manage your products and purchases</p>
+        </div>
+
+        <nav>
+            <a href="index.html">Inventory</a>
+            <a class="active" href="purchase.html">Purchase List</a>
+        </nav>
+
+    </header>
+
+
+    <main>
+
+        <div class="print-header">
+
+            <h1>PURCHASE LIST</h1>
+
+            <p>Store Inventory</p>
+
+            <p>
+                Date:
+                <span id="printDate"></span>
+            </p>
+
+        </div>
+
+        <div class="inventory-header">
+
+            <div>
+                <h2>Purchase List</h2>
+                <p>Manage the products you need to purchase.</p>
+            </div>
+
+        </div>
+
+
+        <!-- Add Purchase -->
+
+        <section class="section no-print">
+
+            <h3>Add Product to Purchase List</h3>
+
+            <div class="purchase-form">
+
+                <div class="form-group">
+
+                    <label for="purchaseDate">
+                        Purchase Date
+                    </label>
+
+                    <input type="date" id="purchaseDate">
+
+                </div>
+
+                <div class="form-group">
+
+                    <label for="purchaseSearch">
+                        Search Product
+                    </label>
+
+                    <input type="text" id="purchaseSearch" placeholder="Search by ID or product name" autocomplete="off"
+                        oninput="searchPurchaseProduct()">
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="purchaseProduct">
+                        Product
+                    </label>
+
+                    <select id="purchaseProduct">
+
+                        <option value="">
+                            -- Select Product --
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label for="purchaseQuantity">
+                        Quantity
+                    </label>
+
+                    <input type="number" id="purchaseQuantity" min="1" placeholder="Enter quantity">
+
+                </div>
+
+                <button class="add-btn" onclick="addPurchase()">
+                    Add to List
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <div style="height: 20px;"></div>
+
+
+        <!-- Purchase Table -->
+
+        <section class="section">
+
+            <h3>
+                Products to Purchase
+            </h3>
+
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Product</th>
+                            <th>Quantity</th>
+                            <th>Purchase Price</th>
+                            <th>Subtotal</th>
+                            <th class="no-print">Action</th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="purchaseTable">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+            <div class="purchase-summary">
+
+                <div class="card">
+
+                    <h3>Products</h3>
+
+                    <p>
+                        <span id="purchaseItemCount">0</span>
+                        items
+                    </p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <h3>Total Quantity</h3>
+
+                    <p>
+                        <span id="purchaseQuantityTotal">0</span>
+                        pcs
+                    </p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <h3>Grand Total</h3>
+
+                    <p id="purchaseTotal">
+                        ₱0.00
+                    </p>
+
+                </div>
+
+            </div>
+
+            <button class="clear-history-btn no-print" onclick="clearPurchaseList()">
+                Clear Purchase List
+            </button>
+
+            <button class="print-purchase-btn no-print" onclick="printPurchaseList()">
+                🖨️ Print Purchase List
+            </button>
+
+        </section>
+
+    </main>
+
+    <footer class="footer no-print">
+
+        <p>© 2026 Store Inventory</p>
+
+        <span>Inventory Management System</span>
+
+    </footer>
+
+    <script src="purchase.js"></script>
+
+</body>
+
+</html>

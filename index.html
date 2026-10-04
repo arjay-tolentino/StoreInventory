@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Store Inventory System</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+
+    <header class="header">
+
+        <div>
+            <h1>Store Inventory</h1>
+            <p>Manage your products and stock</p>
+        </div>
+
+        <nav>
+            <a class="active" href="index.html">Inventory</a>
+            <a href="purchase.html">Purchase List</a>
+        </nav>
+
+    </header>
+
+
+    <main>
+
+
+        <!-- DASHBOARD -->
+
+        <section class="dashboard">
+
+            <div class="card">
+                <h3>Total Products</h3>
+                <p id="totalProducts">0</p>
+            </div>
+
+            <div class="card">
+                <h3>Total Stock</h3>
+                <p id="totalStock">0</p>
+            </div>
+
+            <div class="card">
+                <h3>Total Inventory Value</h3>
+                <p id="inventoryValue">₱0.00</p>
+            </div>
+
+            <div class="card">
+                <h3>Total Transactions</h3>
+                <p id="totalTransactions">0</p>
+            </div>
+
+        </section>
+
+
+
+        <!-- ADD PRODUCT -->
+
+        <section class="section">
+
+            <h2>Add New Product</h2>
+
+            <div class="form">
+
+                <input type="text" id="productId" placeholder="Product ID">
+
+                <input type="text" id="productName" placeholder="Product Name">
+
+                <input type="text" id="category" placeholder="Category">
+
+                <input type="number" id="purchasePrice" placeholder="Purchase Price" step="0.01">
+
+                <input type="number" id="retailPrice" placeholder="Retail Price" step="0.01">
+
+                <input type="number" id="stock" placeholder="Stock">
+
+                <button class="add-btn" onclick="addProduct()">
+                    + Add Product
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- INVENTORY -->
+
+        <section class="section">
+
+            <div class="inventory-header">
+
+                <h2>Product Inventory</h2>
+
+                <input type="text" id="searchProduct" placeholder="🔍 Search product..." onkeyup="searchProduct()">
+
+                <select id="categoryFilter" onchange="filterCategory()">
+                    <option value="all">All Categories</option>
+                </select>
+
+            </div>
+
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>ID</th>
+
+                            <th>Product</th>
+
+                            <th>Category</th>
+
+                            <th>Purchase Price</th>
+
+                            <th>Retail Price</th>
+
+                            <th>Stock</th>
+
+                            <th>Action</th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="inventoryTable">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+        <!-- STOCK HISTORY -->
+
+        <section class="section">
+
+            <div class="inventory-header">
+                <h2>Stock History</h2>
+
+                <button class="clear-history-btn" onclick="clearHistory()">
+                    Clear History
+                </button>
+            </div>
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>Date & Time</th>
+                            <th>Product ID</th>
+                            <th>Product</th>
+                            <th>Action</th>
+                            <th>Quantity</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="historyTable">
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer class="footer no-print">
+
+        <p>© 2026 Store Inventory</p>
+
+        <span>Inventory Management System</span>
+
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
